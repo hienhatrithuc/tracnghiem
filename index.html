@@ -3,41 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Google Form của tôi</title>
+    <title>Bài Trắc Nghiệm Luật Tố Tụng Hình Sự</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
-            width: 90%;
-            max-width: 800px;
             background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            padding: 30px;
+            margin: 20px;
         }
         h1 {
             text-align: center;
             color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
-        iframe {
-            width: 100%;
-            height: 3878px;
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h2 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .question div {
+            margin-bottom: 10px;
+        }
+        .question label {
+            margin-left: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
             border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #28a745;
+        }
+        .question input[type="radio"] {
+            transform: scale(1.2);
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Trang Google Form của tôi</h1>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpCzKAGgnzsV1Pf39l4lBUWs8drUB0lBFX_4smOacmKPsEvw/viewform?embedded=true">Đang tải…</iframe>
+        <h1>Bài Trắc Nghiệm Luật Tố Tụng Hình Sự</h1>
+        <form id="quizForm">
+            <div class="question">
+                <h2>Câu hỏi 1: Luật Tố tụng hình sự hiện hành của Việt Nam có hiệu lực từ ngày nào?</h2>
+                <div>
+                    <input type="radio" id="q1a" name="q1" value="2015">
+                    <label for="q1a">1/7/2015</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1b" name="q1" value="2016">
+                    <label for="q1b">1/7/2016</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1c" name="q1" value="2017">
+                    <label for="q1c">1/7/2017</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 2: Cơ quan nào có thẩm quyền khởi tố vụ án hình sự?</h2>
+                <div>
+                    <input type="radio" id="q2a" name="q2" value="ToaAn">
+                    <label for="q2a">Tòa án</label>
+                </div>
+                <div>
+                    <input type="radio" id="q2b" name="q2" value="VienKiemSat">
+                    <label for="q2b">Viện kiểm sát</label>
+                </div>
+                <div>
+                    <input type="radio" id="q2c" name="q2" value="CongAn">
+                    <label for="q2c">Công an</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 3: Thời hạn tạm giam để điều tra đối với tội đặc biệt nghiêm trọng là bao lâu?</h2>
+                <div>
+                    <input type="radio" id="q3a" name="q3" value="2thang">
+                    <label for="q3a">2 tháng</label>
+                </div>
+                <div>
+                    <input type="radio" id="q3b" name="q3" value="3thang">
+                    <label for="q3b">3 tháng</label>
+                </div>
+                <div>
+                    <input type="radio" id="q3c" name="q3" value="4thang">
+                    <label for="q3c">4 tháng</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 4: Người bị tạm giữ có quyền gì trong quá trình tạm giữ?</h2>
+                <div>
+                    <input type="radio" id="q4a" name="q4" value="GoiLuatsu">
+                    <label for="q4a">Gọi luật sư</label>
+                </div>
+                <div>
+                    <input type="radio" id="q4b" name="q4" value="NhanTin">
+                    <label for="q4b">Nhận thư</label>
+                </div>
+                <div>
+                    <input type="radio" id="q4c" name="q4" value="GiuImLang">
+                    <label for="q4c">Giữ im lặng</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 5: Người làm chứng có quyền lợi gì?</h2>
+                <div>
+                    <input type="radio" id="q5a" name="q5" value="KhongLoi">
+                    <label for="q5a">Không có lợi</label>
+                </div>
+                <div>
+                    <input type="radio" id="q5b" name="q5" value="BaoVe">
+                    <label for="q5b">Được bảo vệ</label>
+                </div>
+                <div>
+                    <input type="radio" id="q5c" name="q5" value="DeChung">
+                    <label for="q5c">Được đề nghị làm chứng</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 6: Bản án có hiệu lực thi hành khi nào?</h2>
+                <div>
+                    <input type="radio" id="q6a" name="q6" value="NgayTuyen">
+                    <label for="q6a">Ngay khi tuyên án</label>
+                </div>
+                <div>
+                    <input type="radio" id="q6b" name="q6" value="HetKhangCao">
+                    <label for="q6b">Sau khi hết thời hạn kháng cáo</label>
+                </div>
+                <div>
+                    <input type="radio" id="q6c" name="q6" value="ThuongTruc">
+                    <label for="q6c">Khi được Thường trực Quốc hội phê chuẩn</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 7: Trong bao lâu từ khi có quyết định khởi tố vụ án, cơ quan điều tra phải tiến hành điều tra?</h2>
+                <div>
+                    <input type="radio" id="q7a" name="q7" value="2thang">
+                    <label for="q7a">2 tháng</label>
+                </div>
+                <div>
+                    <input type="radio" id="q7b" name="q7" value="4thang">
+                    <label for="q7b">4 tháng</label>
+                </div>
+                <div>
+                    <input type="radio" id="q7c" name="q7" value="6thang">
+                    <label for="q7c">6 tháng</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 8: Cơ quan nào có thẩm quyền xét xử sơ thẩm vụ án hình sự?</h2>
+                <div>
+                    <input type="radio" id="q8a" name="q8" value="ToaAnNDTC">
+                    <label for="q8a">Tòa án Nhân dân Tối cao</label>
+                </div>
+                <div>
+                    <input type="radio" id="q8b" name="q8" value="ToaAnNDTP">
+                    <label for="q8b">Tòa án Nhân dân Thành phố</label>
+                </div>
+                <div>
+                    <input type="radio" id="q8c" name="q8" value="ToaAnNDHuyen">
+                    <label for="q8c">Tòa án Nhân dân Huyện</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 9: Thẩm phán có quyền gì trong quá trình xét xử?</h2>
+                <div>
+                    <input type="radio" id="q9a" name="q9" value="TuyenAn">
+                    <label for="q9a">Tuyên án</label>
+                </div>
+                <div>
+                    <input type="radio" id="q9b" name="q9" value="HoiCung">
+                    <label for="q9b">Hỏi cung</label>
+                </div>
+                <div>
+                    <input type="radio" id="q9c" name="q9" value="GiamDinh">
+                    <label for="q9c">Giám định</label>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Câu hỏi 10: Án lệ được áp dụng như thế nào trong hệ thống pháp luật Việt Nam?</h2>
+                <div>
+                    <input type="radio" id="q10a" name="q10" value="BatBuoc">
+                    <label for="q10a">Bắt buộc</label>
+                </div>
+                <div>
+                    <input type="radio" id="q10b" name="q10" value="ThamKhao">
+                    <label for="q10b">Tham khảo</label>
+                </div>
+                <div>
+                    <input type="radio" id="q10c" name="q10" value="TuyChon">
+                    <label for="q10c">Tùy chọn</label>
+                </div>
+            </div>
+            <button type="button" onclick="calculateScore()">Nộp bài</button>
+        </form>
+        <div id="result"></div>
     </div>
+    <script>
+        function calculateScore() {
+            const quizForm = document.getElementById('quizForm');
+            const formData = new FormData(quizForm);
+            const answers = {
+                q1: '2016',
+                q2: 'CongAn',
+                q3: '4thang',
+                q4: 'GoiLuatsu',
+                q5: 'BaoVe',
+                q6: 'HetKhangCao',
+                q7: '4thang',
+                q8: 'ToaAnNDTP',
+                q9: 'TuyenAn',
+                q10: 'ThamKhao'
+            };
+            let score = 0;
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                if (formData.get(question) === correctAnswer) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `Bạn đã trả lời đúng ${score} trên ${Object.keys(answers).length} câu hỏi.`;
+        }
+    </script>
 </body>
 </html>
