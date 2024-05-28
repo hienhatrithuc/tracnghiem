@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài Thi Trắc Nghiệm Luật Tố Tụng Hình Sự 2015</title>
+    <title>Bài Thi Trắc Nghiệm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f0f8ff;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
+        .quiz-container {
+            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
         }
         h1 {
             text-align: center;
@@ -25,112 +30,161 @@
         .question {
             margin-bottom: 20px;
         }
-        .question h3 {
+        .question h2 {
+            font-size: 18px;
             margin-bottom: 10px;
         }
-        .question label {
+        .answers {
+            list-style: none;
+            padding: 0;
+        }
+        .answers li {
+            margin-bottom: 10px;
+        }
+        .answers label {
+            cursor: pointer;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .submit-btn {
             display: block;
-            margin-bottom: 5px;
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #4cae4c;
         }
         .result {
             display: none;
             margin-top: 20px;
-            padding: 10px;
-            background: #e0ffe0;
-            border: 1px solid #green;
-            border-radius: 5px;
+            font-size: 18px;
+            color: #333;
             text-align: center;
-        }
-        .result p {
-            margin: 0;
-            font-size: 1.2em;
-        }
-        .btn-submit {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn-submit:hover {
-            background: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bài Thi Trắc Nghiệm Luật Tố Tụng Hình Sự 2015</h1>
+    <div class="quiz-container">
+        <h1>Bài Thi Trắc Nghiệm</h1>
         <form id="quiz-form">
-            <!-- Câu hỏi sẽ được tải từ file JSON -->
+            <div class="question">
+                <h2>Câu 1: Theo quy định của Bộ luật tố tụng hình sự 2015 người bị buộc tội gồm những người nào sau đây?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q1" value="a"> a) Người bị giữ trong trường hợp khẩn cấp người bị bắt người bị tạm giữ bị can bị cáo</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> b) Người bị bắt người bị tạm giữ bị can bị cáo</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> c) Người bị tạm giữ bị can bị cáo</label></li>
+                    <li><label><input type="radio" name="q1" value="d"> d) Bị can bị cáo</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 2: Theo quy định của Bộ luật tố tụng hình sự 2015 đương sự gồm những người nào sau đây?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q2" value="a"> a) Bị hại nguyên đơn dân sự bị đơn dân sự người có quyền lợi nghĩa vụ liên quan đến vụ án hình sự</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> b) Nguyên đơn dân sự bị đơn dân sự</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> c) Nguyên đơn dân sự bị đơn dân sự người có quyền lợi nghĩa vụ liên quan đến vụ án hình sự</label></li>
+                    <li><label><input type="radio" name="q2" value="d"> d) Bị hại người có quyền lợi nghĩa vụ liên quan</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 3: Để đảm bảo quyền bất khả xâm phạm về thân thể Bộ luật TTHS 2015 nghiêm cấm những hành vi nào?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q3" value="a"> a) Tra tấn hay bất kỳ hình thức đối xử nào khác xâm phạm thân thể tính mạng sức khỏe của con người.</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> b) Bức cung hay bất kỳ hình thức đối xử nào khác xâm phạm thân thể tính mạng sức khỏe của con người.</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 4: Khi tiến hành thực nghiệm điều tra có bắt buộc phải mời người chứng kiến hay không?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q4" value="a"> a) Không</label></li>
+                    <li><label><input type="radio" name="q4" value="b"> b) Có</label></li>
+                    <li><label><input type="radio" name="q4" value="c"> c) Tùy trường hợp</label></li>
+                    <li><label><input type="radio" name="q4" value="d"> d) Do Viện kiểm sát quyết định</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 5: Trong trường hợp nào thì Cơ quan điều tra không phải làm bản kết luận điều tra?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q5" value="a"> a) Vụ án được điều tra theo thủ tục rút gọn</label></li>
+                    <li><label><input type="radio" name="q5" value="b"> b) Vụ án bị trả hồ sơ để điều tra bổ sung</label></li>
+                    <li><label><input type="radio" name="q5" value="c"> c) Vụ án bị trả hồ sơ để điều tra lại</label></li>
+                    <li><label><input type="radio" name="q5" value="d"> d) Vụ án đã có quyết định đình chỉ điều tra</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 6: Những người nào sau đây không có thẩm quyền ra lệnh khám xét khẩn cấp?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q6" value="a"> a) Thủ trưởng cơ quan điều tra</label></li>
+                    <li><label><input type="radio" name="q6" value="b"> b) Viện trưởng Viện kiểm sát</label></li>
+                    <li><label><input type="radio" name="q6" value="c"> c) Đồn trưởng đồn biên phòng</label></li>
+                    <li><label><input type="radio" name="q6" value="d"> d) Chi cục trưởng chi cục kiểm ngư vùng</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 7: Kiểm sát viên bắt buộc phải có mặt khi tiến hành hoạt động hỏi cung bị can?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q7" value="a"> a) Đúng</label></li>
+                    <li><label><input type="radio" name="q7" value="b"> b) Sai</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 8: Biện pháp hỏi cung bị can và lấy lời khai người làm chứng chỉ khác nhau về đối tượng áp dụng?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q8" value="a"> a) Đúng</label></li>
+                    <li><label><input type="radio" name="q8" value="b"> b) Sai</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 9: Mọi hoạt động điều tra đều phải có người chứng kiến?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q9" value="a"> a) Đúng</label></li>
+                    <li><label><input type="radio" name="q9" value="b"> b) Sai</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <h2>Câu 10: Kiểm sát viên được quyền tiến hành thực nghiệm điều tra?</h2>
+                <ul class="answers">
+                    <li><label><input type="radio" name="q10" value="a"> a) Đúng</label></li>
+                    <li><label><input type="radio" name="q10" value="b"> b) Sai</label></li>
+                </ul>
+            </div>
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Nộp Bài</button>
         </form>
-        <div class="result" id="result">
-            <p id="score"></p>
-        </div>
+        <div id="result" class="result"></div>
     </div>
 
     <script>
-        async function loadQuestions() {
-            const response = await fetch('/mnt/data/questions.json');
-            const questions = await response.json();
-            const form = document.getElementById('quiz-form');
-            questions.forEach((q, index) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.classList.add('question');
-                const questionTitle = document.createElement('h3');
-                questionTitle.textContent = q.question;
-                questionDiv.appendChild(questionTitle);
-
-                q.options.forEach(option => {
-                    const label = document.createElement('label');
-                    label.innerHTML = `<input type="radio" name="q${index}" value="${option}"> ${option}`;
-                    questionDiv.appendChild(label);
-                });
-
-                form.appendChild(questionDiv);
-            });
-
-            const submitButton = document.createElement('button');
-            submitButton.type = 'button';
-            submitButton.classList.add('btn-submit');
-            submitButton.textContent = 'Nộp bài';
-            submitButton.onclick = submitQuiz;
-            form.appendChild(submitButton);
-        }
-
-        const correctAnswers = {};
-
-        async function loadAnswers() {
-            const response = await fetch('/mnt/data/questions.json');
-            const questions = await response.json();
-            questions.forEach((q, index) => {
-                correctAnswers[`q${index}`] = q.answer;
-            });
-        }
-
         function submitQuiz() {
-            const form = document.getElementById('quiz-form');
+            const quizForm = document.getElementById('quiz-form');
+            const resultDiv = document.getElementById('result');
+            const correctAnswers = {
+                q1: 'a',
+                q2: 'a',
+                q3: 'b',
+                q4: 'b',
+                q5: 'a',
+                q6: 'd',
+                q7: 'a',
+                q8: 'b',
+                q9: 'b',
+                q10: 'b'
+            };
             let score = 0;
-            const formData = new FormData(form);
-
+            const formData = new FormData(quizForm);
             for (const [key, value] of formData.entries()) {
                 if (correctAnswers[key] === value) {
                     score++;
                 }
             }
-
-            const totalQuestions = Object.keys(correctAnswers).length;
-            const resultDiv = document.getElementById('result');
-            const scoreText = document.getElementById('score');
-            scoreText.textContent = `Bạn đã trả lời đúng ${score} trên ${totalQuestions} câu.`;
-
+            resultDiv.innerHTML = `Bạn đã trả lời đúng ${score}/10 câu.`;
             resultDiv.style.display = 'block';
         }
-
-        loadQuestions();
-        loadAnswers();
     </script>
 </body>
 </html>
