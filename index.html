@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài Thi Trắc Nghiệm</title>
+    <title>Bài Thi Trắc Nghiệm Luật Tố tụng hình sự</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,7 +28,10 @@
             color: #333;
         }
         .question {
-            margin-bottom: 20px;
+            display: none;
+        }
+        .question.active {
+            display: block;
         }
         .question h2 {
             font-size: 18px;
@@ -47,9 +50,11 @@
         .answers input {
             margin-right: 10px;
         }
-        .submit-btn {
-            display: block;
-            width: 100%;
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-btn, .submit-btn {
             padding: 10px;
             background-color: #5cb85c;
             color: #fff;
@@ -58,7 +63,7 @@
             cursor: pointer;
             font-size: 16px;
         }
-        .submit-btn:hover {
+        .nav-btn:hover, .submit-btn:hover {
             background-color: #4cae4c;
         }
         .result {
@@ -74,7 +79,7 @@
     <div class="quiz-container">
         <h1>Bài Thi Trắc Nghiệm</h1>
         <form id="quiz-form">
-            <div class="question">
+            <div class="question active">
                 <h2>Câu 1: Theo quy định của Bộ luật tố tụng hình sự 2015 người bị buộc tội gồm những người nào sau đây?</h2>
                 <ul class="answers">
                     <li><label><input type="radio" name="q1" value="a"> a) Người bị giữ trong trường hợp khẩn cấp người bị bắt người bị tạm giữ bị can bị cáo</label></li>
@@ -154,12 +159,43 @@
                     <li><label><input type="radio" name="q10" value="b"> b) Sai</label></li>
                 </ul>
             </div>
-            <button type="button" class="submit-btn" onclick="submitQuiz()">Nộp Bài</button>
+            <div class="btn-container">
+                <button type="button" class="nav-btn" id="prev-btn" onclick="showPrevQuestion()" disabled>Quay lại</button>
+                <button type="button" class="nav-btn" id="next-btn" onclick="showNextQuestion()">Tiếp theo</button>
+                <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()" style="display: none;">Nộp Bài</button>
+            </div>
         </form>
         <div id="result" class="result"></div>
     </div>
 
     <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function showQuestion(index) {
+            questions[currentQuestion].classList.remove('active');
+            questions[index].classList.add('active');
+            currentQuestion = index;
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.style.display = currentQuestion === questions.length - 1 ? 'none' : 'inline-block';
+            submitBtn.style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
+        }
+
+        function showNextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+
+        function showPrevQuestion() {
+            if (currentQuestion > 0) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+
         function submitQuiz() {
             const quizForm = document.getElementById('quiz-form');
             const resultDiv = document.getElementById('result');
@@ -185,6 +221,8 @@
             resultDiv.innerHTML = `Bạn đã trả lời đúng ${score}/10 câu.`;
             resultDiv.style.display = 'block';
         }
+
+        showQuestion(0);
     </script>
 </body>
 </html>
